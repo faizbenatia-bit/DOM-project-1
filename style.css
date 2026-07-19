@@ -44,6 +44,27 @@ button {
   box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.95rem;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+}
+
+.cart-badge i {
+  color: #2563eb;
+}
+
 .eyebrow {
   margin: 0 0 0.35rem;
   text-transform: uppercase;
@@ -264,9 +285,76 @@ button {
   color: #111827;
 }
 
+.empty-state {
+  display: grid;
+  place-items: center;
+  gap: 0.7rem;
+  min-height: 240px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 24px;
+  background: #f8fafc;
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.empty-state[hidden] {
+  display: none;
+}
+
+.empty-state i {
+  font-size: 2rem;
+  color: #2563eb;
+}
+
+.empty-state h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.empty-state p {
+  margin: 0;
+  max-width: 20rem;
+}
+
+.empty-state button,
+.clear-cart,
+.restore {
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.empty-state button:hover,
+.clear-cart:hover,
+.restore:hover {
+  transform: translateY(-1px);
+  background: #1d4ed8;
+}
+
+.clear-cart {
+  width: 100%;
+  margin-top: 0.5rem;
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.clear-cart:hover {
+  background: #cbd5e1;
+}
+
+.clear-cart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .checkout {
   width: 100%;
-  margin-top: 1.75rem;
+  margin-top: 1rem;
   padding: 1rem 1.1rem;
   border-radius: 16px;
   background: #2563eb;
@@ -274,10 +362,46 @@ button {
   font-weight: 700;
   font-size: 1rem;
   box-shadow: 0 16px 30px rgba(37, 99, 235, 0.2);
+  transition: transform 0.18s ease, background-color 0.18s ease;
 }
 
 .checkout:hover {
   background: #1d4ed8;
+}
+
+.checkout:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.checkout.is-success {
+  background: #16a34a;
+  box-shadow: 0 16px 30px rgba(22, 163, 74, 0.22);
+}
+
+.card.is-removing {
+  animation: slideOut 0.25s ease forwards;
+}
+
+.card.quantity-updated {
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(12px);
+  }
 }
 
 @media (max-width: 840px) {

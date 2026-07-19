@@ -17,6 +17,12 @@
           <p class="eyebrow">DOM Shop</p>
           <h1>Panier élégant et intuitif</h1>
         </div>
+        <div class="header-actions">
+          <div class="cart-badge" aria-live="polite">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="item-count">2 articles</span>
+          </div>
+        </div>
         <p class="brand-tagline">Gérez vos articles, ajustez les quantités et suivez le total en un clin d’œil.</p>
       </header>
 
@@ -30,6 +36,13 @@
         </section>
 
         <div class="cart-items">
+          <div class="empty-state" hidden>
+            <i class="fas fa-cart-arrow-down"></i>
+            <h3>Votre panier est vide</h3>
+            <p>Ajoutez quelques articles pour reprendre votre commande.</p>
+            <button class="restore" type="button">Recharger l’exemple</button>
+          </div>
+
           <article class="card card-body">
             <div class="item-preview">
               <img
@@ -109,10 +122,19 @@
             <span>Sous-total</span>
             <span class="subtotal">170 DT</span>
           </div>
+          <div class="summary-row">
+            <span>Livraison</span>
+            <span class="shipping">20 DT</span>
+          </div>
+          <div class="summary-row">
+            <span>Économie</span>
+            <span class="savings">0 DT</span>
+          </div>
           <div class="summary-row total-row">
             <span>Total</span>
             <span class="total">170 DT</span>
           </div>
+          <button class="clear-cart" type="button">Vider le panier</button>
           <button class="checkout" type="button">Valider la commande</button>
         </aside>
       </main>
